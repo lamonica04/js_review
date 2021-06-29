@@ -15,14 +15,14 @@ console.log("2 let account1 " + account1);
 console.log("2 const accountMain " + accountMain);
 console.log("2 var account2 " + account2);
 
-let number1 = 123;
-console.log("1. number1 = " + number1);
+let numberA = 123;
+console.log("1. numbera = " + numberA);
 
-number1 += 15;
-console.log("2. number1 = " + number1);
+numberA += 15;
+console.log("2. numbera = " + numberA);
 
-number1 -= 8;
-console.log("3. number1 = " + number1);
+numberA -= 8;
+console.log("3. numbera = " + numberA);
 
 let avg = (26 + 44 + 72 +86 +112) / 5;
 console.log("4. avg = " + avg);
