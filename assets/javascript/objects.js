@@ -121,7 +121,7 @@ function checkEyeColor(arr, color) {
 
  function tagFavorite(arr, fave) {
     for (i=0; i<arr.length; i++ ){
-        arr[i].favoriteCharacter= false;
+        arr[i].favoriteCharacter = false;
         if (arr[i].name === fave){
             console.log("true");
             arr[i].favoriteCharacter = true; 
