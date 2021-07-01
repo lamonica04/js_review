@@ -112,6 +112,13 @@ function checkEyeColor(arr, color) {
     }
  console.log("Mass total is " + massTotal);
 
+ let totalMass = charactersArray.reduce(function(runningTotal, character) {
+     return runningTotal += parseInt(character.mass);
+ }, 0); 
+
+ console.log("Total Mass is " + totalMass);
+ 
+
  function tagFavorite(arr, fave) {
     for (i=0; i<arr.length; i++ ){
         arr[i].favoriteCharacter= false;
