@@ -26,27 +26,33 @@ function clickMe(message){
 
 clickMe("Click Me");
 
-const header = document.getElementById("hershey");
-header.style.backgroundColor = "black";
-header.style.color = "white";
+const button = document.getElementById("hershey");
+button.style.backgroundColor = "black";
+button.style.color = "white";
 
+
+// let count = 0;
+// let counter = document.getElementById('counter');
 let count = parseInt(document.getElementById('counter').textContent);
-console.log("count is " + count);
+console.log(counter);
 console.log("count is " + typeof(count));
 
-header.addEventListener('click', function() {
+button.addEventListener('click', function(event) {
+    event.preventDefault();
     console.log('click');
     count++;
     console.log(count);
-    document.getElementById('counter').innerHTML = count;
+    // document.getElementById('counter').innerHTML = count;
+    counter.innerHTML = count;
     document.body.style.backgroundColor = randomColor();
 });
 
-header.addEventListener("contextmenu",function(event){
+button.addEventListener("contextmenu",function(event){
     console.log('right click')
     event.preventDefault();
     count--;
-    document.getElementById('counter').innerHTML = count;
+    counter.innerHTML = count;
+    // document.getElementById('counter').innerHTML = count;
     document.body.style.backgroundColor = randomColor();
 });
 
@@ -54,12 +60,12 @@ function randomColor() {
     const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
     
     let randomIndex = Math.floor(Math.random() * ((colors.length - 1) - 0 + 1) + 0)
-    
+    // console.log("random index" + randomIndex)
     return colors[randomIndex]
+
 }
 
-let tBody = document.querySelector("tbody");
-console.log(tBody);
+
 
 
 let quizQuestions = [
@@ -160,15 +166,40 @@ let quizQuestions = [
     }
 ]
 
-for (i=0; i<quizQuestions.length; i++ ){
-    document.querySelector(tbody).innerHtml = quizQuestions[i].id;
-    // quizQuestions[i].question;
-    // quizQuestions[i].category;
-    // quizQuestions[i].value;
-    // quizQuestions[i].answer;
-    console.log(tbody);
-    }
 
+let quizQuestionsTableTbody = document.querySelector("#quizQuestionsTable tbody");
+
+quizQuestions.forEach(function(question) {
+    let row = '<tr>';
+    row += `<td>${question.id}</td>`;
+    row += `<td>${question.question}</td>`
+    row += `<td>${question.category.title}</td>`
+    row += `<td>${question.value}</td>`
+    row += `<td>${question.answer}</td>`
+    row += `</tr>`
+
+    quizQuestionsTableTbody.innerHTML += row;
+})
+
+// let tbody = document.getElementById ("tbodyID");
+// console.log(tbody);
+
+// for (i=0; i<quizQuestions.length; i++ ){
+ 
+//     let tr = "<td>" + quizQuestions[i].id + "</td>" + "<td>" + quizQuestions[i].question
+//     + "</td>" + "<td>"  +  quizQuestions[i].category.title 
+//     + "</td>" + "<td>" + quizQuestions[i].value 
+//     + "</td>" + "<td>" + quizQuestions[i].answer + "</td>";
+   
+//     tbody.innerHTML += tr;
+// }
+
+
+$(document).ready( function () {
+    $('#quizQuestionsTable').DataTable();
+} );
+
+// $('#quizQestionsTable').DataTable();
 
 
 
